@@ -11,6 +11,6 @@ require('./plugins/db')(app)
 require('./router/admin')(app)
 
 
-app.listen(3008,() => {
+app.listen(3008, () => {
     console.log("http://localhost:3008")
 })
