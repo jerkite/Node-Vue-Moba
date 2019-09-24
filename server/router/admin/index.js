@@ -41,4 +41,12 @@ module.exports = app => {
         req.Model = require(`../../models/${modelName}`)
         next()
     }, router)
+
+    const multer = require('multer')
+    const upload = multer({ dest: __dirname + '../../../uploads' })  //中间键 把文件上传到upload文件夹中
+    app.post('/admin/api/upload',upload.single('file'), async (req, res) => {  //允许接口接收上传文件
+        const file = req.file
+        file.url = `http://localhost:3008/uploads/${file.filename}` //添加一个url属性，方便之后显示图片
+        res.send(file)
+    })
 }
