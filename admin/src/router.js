@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-// import Home from './views/Home.vue'
+import Login from './views/Login.vue'
 import Main from "./views/Main.vue";
 import CategoryEdit from "./views/CategoryEdit.vue";
 import CategoryList from "./views/CategoryList.vue";
@@ -14,10 +14,20 @@ import HeroList from "./views/HeroList.vue";
 import ArticleEdit from "./views/ArticleEdit.vue";
 import ArticleList from "./views/ArticleList.vue";
 
+import AdEdit from "./views/AdEdit.vue";
+import AdList from "./views/AdList.vue";
+
+
+import AdminUrseEdit from "./views/AdminUrseEdit.vue";
+import AdminUrseList from "./views/AdminUrseList.vue";
+
+
+
 Vue.use(Router);
 
 export default new Router({
   routes: [
+    { path: "/login", name: "login", component: Login },
     {
       path: "/",
       name: "main",
@@ -43,6 +53,16 @@ export default new Router({
         { path: "/articles/create", component: ArticleEdit },
         { path: "/articles/edit/:id", component: ArticleEdit, props: true },
         { path: "/articles/list", component: ArticleList },
+
+        //广告位路由
+        { path: "/ads/create", component: AdEdit },
+        { path: "/ads/edit/:id", component: AdEdit, props: true },
+        { path: "/ads/list", component: AdList },
+
+        //管理员路由
+        { path: "/admin_urses/create", component: AdminUrseEdit },
+        { path: "/admin_urses/edit/:id", component: AdminUrseEdit, props: true },
+        { path: "/admin_urses/list", component: AdminUrseList },
       ]
     }
   ]
