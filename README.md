@@ -34,3 +34,8 @@
 ## 编辑管理员帐号管理
 1. 使用bcrype包对密码进行加密
 2. 在server中的model中创建AmdinUrse 并在帐号内容中使用selecte保证密码不会被再次加密
+
+## 登录页面
+1. 登录接口 (jwt,jsonwebtoken)
+2. 服务端登录校验
+3. 客户端路由限制 (beforeEach, meta)

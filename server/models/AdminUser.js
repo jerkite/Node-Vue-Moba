@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    name: { type: String },
+    username: { type: String },
     password: {
         type: String,
         select:false,
@@ -11,4 +11,4 @@ const schema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('AdminUrse', schema)
+module.exports = mongoose.model('AdminUser', schema)

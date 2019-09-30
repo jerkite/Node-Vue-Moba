@@ -6,7 +6,7 @@
     <el-form label-width="120px" @submit.native.prevent="save">
       <!-- 选择要加入子类的父类 -->
       <el-form-item label="用户名">
-        <el-input v-model="model.name"></el-input>
+        <el-input v-model="model.username"></el-input>
       </el-form-item>
       <el-form-item label="密码">
         <el-input v-model="model.password"></el-input>
@@ -34,20 +34,20 @@ export default {
   },
   methods: {
     async save() {
-      //发送数据到服务器，并将数据保存到路由跳转/ rest/admin_urses/list的页面中
+      //发送数据到服务器，并将数据保存到路由跳转/ rest/admin_users/list的页面中
       if (this.id) {
-        const res = await this.$http.put('rest/admin_urses/' + this.id, this.model)
+        const res = await this.$http.put('rest/admin_users/' + this.id, this.model)
       } else {
-        const res = await this.$http.post('rest/admin_urses', this.model)
+        const res = await this.$http.post('rest/admin_users', this.model)
       }
-      this.$router.push('/admin_urses/list')
+      this.$router.push('/admin_users/list')
       this.$message({
         type: 'success',
         message: '保存成功'
       })
     },
     async fetch() {
-      const res = await this.$http.get('rest/admin_urses/' + this.id)
+      const res = await this.$http.get('rest/admin_users/' + this.id)
       this.model = res.data
     },
   },
