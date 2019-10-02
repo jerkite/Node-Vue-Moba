@@ -1,0 +1,122 @@
+//重置样式
+@import './variables';
+
+* {
+  box-sizing: border-size;
+  outline: none;
+}
+html {
+  font-size: 13px;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+  background-color: #f1f1f1;
+}
+a {
+  color: #999;
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+
+//colors
+//文本颜色
+@each $colorKey, $colorVar in $colors {
+  .text-#{$colorKey} {
+    color: $colorVar;
+  }
+}
+
+//背景颜色
+@each $colorKey, $colorVar in $colors {
+  .bg-#{$colorKey} {
+    background-color: $colorVar;
+  }
+}
+//文本位置
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var  !important;
+  }
+}
+//字体大小
+
+@each $fontKey, $fontVar in $fonts {
+  .#{$fontKey} {
+    font-size: $fontVar * $font-base-size;
+  }
+}
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+//弹性盒布局
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex {
+  flex: 1;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+
+
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+//垂直方向
+
+@each $key, $value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+@each $STkey, $STvalue in $space-type {
+  //m-1
+  @each $SSkey, $SSvalue in $space-size {
+    .#{$STkey}-#{$SSkey} {
+      #{$STvalue}: $SSvalue * $base-space-size;
+    }
+  }
+  //mx-1,px-1
+  @each $SSkey, $SSvalue in $space-size {
+    .#{$STkey}x-#{$SSkey} {
+      #{$STvalue}-left: $SSvalue * $base-space-size;
+      #{$STvalue}-right: $SSvalue * $base-space-size;
+    }
+  }
+  //my-1
+  @each $SSkey, $SSvalue in $space-size {
+    .#{$STkey}y-#{$SSkey} {
+      #{$STvalue}-top: $SSvalue * $base-space-size;
+      #{$STvalue}-bottom: $SSvalue * $base-space-size;
+    }
+  }
+  //mt-1
+  @each $SDkey, $SDvalue in $space-direction {
+    @each $SSkey, $SSvalue in $space-size {
+      .#{$STkey}#{$SDkey}-#{$SSkey} {
+        #{$STvalue}-#{$SDvalue}: $SSvalue * $base-space-size;
+      }
+    }
+  }
+}
+//button
+.btn {
+  border: none;
+  border-radius: 0.1538rem;
+  font-size: map-get($fonts, 'ms') * $font-base-size;
+  padding: 0.3rem 0.6rem;
+}

@@ -1,0 +1,60 @@
+//colors
+$colors: (
+  'primary': #db9e3f,
+  'info':#4b67af,
+  'white': #fff,
+  'light': #f9f9f9,
+  'gery': #999,
+  'dark-l': #343440,
+  'dark': #222,
+  'black': #000
+);
+//字体大小
+$font-base-size: 1rem;
+$fonts: (
+  xxs: 0.6154,
+  xs: 0.7692,
+  ms: 0.9231,
+  md: 1,
+  lg: 1.0769,
+  xl: 1.2308
+);
+
+
+//水平方向
+$flex-jc: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around
+);
+
+//垂直方向
+$flex-ai: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'stretch': stretch
+);
+
+
+//margin,padding
+$space-type: (
+  m: margin,
+  p: padding
+);
+$space-direction: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+$base-space-size: 1rem;
+$space-size: (
+  0: 0.25,
+  1: 0.5,
+  2: 1,
+  3: 1.5,
+  4: 3
+);
