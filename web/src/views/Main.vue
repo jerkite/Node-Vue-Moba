@@ -12,15 +12,15 @@
         <button type="button" class=" btn bg-primary ">立即下载</button>
       </div>
     </div>
-    <div class="nav bg-primary d-flex jc-around text-white pt-2 pb-1 lg">
+    <div class="nav nav-increase bg-primary  jc-around text-white pt-2 pb-1 lg">
       <div class="nav-items active">
-        <router-link class="link" tag='div' to='/home'>首页</router-link>
+        <router-link class="nav-link" tag='div' to='/home'>首页</router-link>
       </div>
       <div class="nav-items ">
-        <router-link class="link" tag='div' to='/'>攻略中心</router-link>
+        <router-link class="nav-link" tag='div' to='/'>攻略中心</router-link>
       </div>
       <div class="nav-items ">
-        <router-link class="link" tag='div' to='/'>赛事中心</router-link>
+        <router-link class="nav-link" tag='div' to='/'>赛事中心</router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -30,16 +30,3 @@
 <script>
 export default {}
 </script>
-<style lang="scss">
-.nav {
-  .nav-items {
-    border-bottom: 0.2308rem solid transparent;
-    &.active {
-      border-bottom: 0.2308rem solid #fff;
-    }
-    .link {
-      padding-bottom: 0.2308rem;
-    }
-  }
-}
-</style>
