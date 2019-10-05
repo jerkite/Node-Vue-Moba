@@ -9,6 +9,7 @@ app.set('secret','87e2ry8whfcq3928q')
 
 require('./plugins/db')(app)
 require('./router/admin')(app)
+require('./router/web')(app)
 
 
 app.listen(3008, () => {

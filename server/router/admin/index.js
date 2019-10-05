@@ -32,7 +32,7 @@ module.exports = app => {
 
     //资源列表
     router.get('/', authMiddleWare(), async (req, res) => {
-        const items = await req.Model.find().populate('parent').limit(10)
+        const items = await req.Model.find().populate('parent').limit(100)
         res.send(items)
     })
 

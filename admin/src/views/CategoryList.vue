@@ -29,7 +29,7 @@ export default {
       this.items = res.data
     },
     async remove(row) {
-      this.$confirm(`此操作将永久删除该文件"${row.name}"`, '提示', {
+      this.$confirm(`此操作将永久删除 "${row.name}"`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'

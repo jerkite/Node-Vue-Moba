@@ -60,36 +60,17 @@
       <i class="sprite sprite-arrowhead">
       </i>收起
     </div>
-    <m-card icon="yijianchuda" title="新闻咨询">
-      <div class="nav jc-between mt-3">
-        <div class="nav-items active">
-          <div class="nav-link">热门</div>
+
+    <m-list-card icon="yijianchuda" title="新闻咨询" :categories="NewCats">
+      <template #items="{category}">
+        <div  class="pt-3 lg" v-for="(news,i) in category.newList" :key="i">
+          <span class="text-gery">[{{news.categoryName}}]</span>
+          <span class="px-1">|</span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
         </div>
-        <div class="nav-items">
-          <div class="nav-link">新闻</div>
-        </div>
-        <div class="nav-items">
-          <div class="nav-link">公告</div>
-        </div>
-        <div class="nav-items">
-          <div class="nav-link">活动</div>
-        </div>
-        <div class="nav-items">
-          <div class="nav-link">赛事</div>
-        </div>
-      </div>
-      <div>
-        <swiper>
-          <swiper-slide v-for="n in 5" :key="n">
-            <div class="hot pt-3 lg" v-for="n in 5" :key="n">
-              <span class="text-gery">[活动]</span>
-              <span class="px-1">|</span>
-              <span>乐享小长假 永久皮肤等你拿</span>
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-    </m-card>
+      </template>
+    </m-list-card>
     <m-card icon="card-hero" title="英雄列表"></m-card>
     <m-card icon="icon-video" title="精彩视频"></m-card>
     <m-card icon="strategy" title="图文攻略"></m-card>
@@ -104,7 +85,49 @@ export default {
         pagination: {
           el: '.swiper-pagination'
         }
-      }
+      },
+      NewCats: [
+        {
+          name: '热门',
+          newList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '乐享小长假 永久皮肤等你拿',
+            date: '10 / 04'
+          }))
+        },
+        {
+          name: '新闻',
+          newList: new Array(5).fill(1).map(v => ({
+            categoryName: '新闻',
+            title: '乐享小长假 永久皮肤等你拿',
+            date: '10 / 04'
+          }))
+        },
+        {
+          name: '公告',
+          newList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '乐享小长假 永久皮肤等你拿',
+            date: '10 / 04'
+          }))
+        },
+        {
+          name: '活动',
+          newList: new Array(5).fill(1).map(v => ({
+            categoryName: '活动',
+            title: '乐享小长假 永久皮肤等你拿',
+            date: '10 / 04'
+          }))
+        },
+        {
+          name: '赛事',
+          newList: new Array(5).fill(1).map(v => ({
+            categoryName: '赛事',
+            title: '乐享小长假 永久皮肤等你拿',
+            date: '10 / 04'
+          }))
+        }
+      ]
     }
   }
 }
