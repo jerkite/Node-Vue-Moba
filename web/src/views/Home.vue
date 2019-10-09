@@ -63,11 +63,11 @@
 
     <m-list-card icon="yijianchuda" title="新闻咨询" :categories="NewCats">
       <template #items="{category}">
-        <div  class="pt-3 lg" v-for="(news,i) in category.newList" :key="i">
-          <span class="text-gery">[{{news.categoryName}}]</span>
-          <span class="px-1">|</span>
-          <span>{{news.title}}</span>
-          <span>{{news.date}}</span>
+        <div class="pt-3 d-flex" v-for="(news,i) in category.newsList" :key="i">
+          <span class="text-info px-1">[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span class="lg flex px-1 text-ellipsis">{{news.title}}</span>
+          <span class="sm text-gery">{{news.createdAt | date}}</span>
         </div>
       </template>
     </m-list-card>
@@ -78,7 +78,13 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 export default {
+  filters:{
+    date(val){
+      return dayjs(val).format('MM/DD')
+    }
+  },
   data() {
     return {
       swiperOption: {
@@ -86,50 +92,18 @@ export default {
           el: '.swiper-pagination'
         }
       },
-      NewCats: [
-        {
-          name: '热门',
-          newList: new Array(5).fill(1).map(v => ({
-            categoryName: '公告',
-            title: '乐享小长假 永久皮肤等你拿',
-            date: '10 / 04'
-          }))
-        },
-        {
-          name: '新闻',
-          newList: new Array(5).fill(1).map(v => ({
-            categoryName: '新闻',
-            title: '乐享小长假 永久皮肤等你拿',
-            date: '10 / 04'
-          }))
-        },
-        {
-          name: '公告',
-          newList: new Array(5).fill(1).map(v => ({
-            categoryName: '公告',
-            title: '乐享小长假 永久皮肤等你拿',
-            date: '10 / 04'
-          }))
-        },
-        {
-          name: '活动',
-          newList: new Array(5).fill(1).map(v => ({
-            categoryName: '活动',
-            title: '乐享小长假 永久皮肤等你拿',
-            date: '10 / 04'
-          }))
-        },
-        {
-          name: '赛事',
-          newList: new Array(5).fill(1).map(v => ({
-            categoryName: '赛事',
-            title: '乐享小长假 永久皮肤等你拿',
-            date: '10 / 04'
-          }))
-        }
-      ]
+      NewCats: [],
     }
-  }
+  },
+  methods:{
+    async fetchNewCats(){
+      const res = await this.$http.get('news/list')
+      this.NewCats=res.data
+    }
+  },
+  created(){
+    this.fetchNewCats()
+  },
 }
 </script>
 <style lang="scss">

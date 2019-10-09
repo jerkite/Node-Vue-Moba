@@ -49,6 +49,14 @@ li {
     font-size: $fontVar * $font-base-size;
   }
 }
+
+//以...显示多出的文字
+.text-ellipsis{
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .w-100 {
   width: 100%;
 }
